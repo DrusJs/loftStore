@@ -318,13 +318,22 @@ body.noscroll {
 
 .image-grid {
     width: 100%;
+    max-width: 1920px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0 0;
 }
 
 .image-grid__item {
-    max-width: 460px;
+    width: 100%;
+    height: auto;
+    max-height: 305px;
+    transition: 200ms ease-in-out;
+    cursor: zoom-in;
+}
+.image-grid__item:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 10px #000000;
 }
 .contacts-info {
     width: 100%;
