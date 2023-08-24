@@ -20,6 +20,7 @@ document.querySelectorAll(".market-grid__item").forEach((el)=>{
 document.querySelectorAll(".image-grid__item").forEach((el)=>{
     el.addEventListener("click", ()=>{
         document.getElementById("modal-scroll").classList.add("active");
+        swiper2.slideTo(el.dataset.image-1, 1)
         document.body.classList.add("noscroll");
     })
 });
