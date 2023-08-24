@@ -8,3 +8,30 @@ document.querySelector(".submit-button").addEventListener("click", (el)=>{
         document.querySelector(".submit-button").innerHTML = `Submit`;
     }, 1500)
 })
+document.querySelectorAll(".market-grid__item").forEach((el)=>{
+    el.addEventListener("click", ()=>{
+        document.getElementById("modal-product").classList.add("active");
+        document.querySelector("#modal-product .modal-img").innerHTML = el.querySelector(".product-img").outerHTML;
+        document.querySelector("#modal-product .modal-name").innerHTML = el.querySelector(".product-name").innerHTML;
+        document.body.classList.add("noscroll");
+    })
+});
+
+document.querySelectorAll(".close-desktop").forEach((el)=>{
+    el.addEventListener("click", ()=>{
+        document.querySelector(".modal-wrapper.active").classList.remove("active");
+        document.body.classList.remove("noscroll");
+    })
+});
+
+document.querySelectorAll(".close-mobile").forEach((el)=>{
+    el.addEventListener("click", ()=>{
+        document.querySelector(".modal-wrapper.active").classList.remove("active");
+        document.body.classList.remove("noscroll");
+    })
+});
+
+document.querySelector(".back-desktop").addEventListener("click", ()=>{
+    document.getElementById("modal-product").classList.remove("active");
+    document.body.classList.remove("noscroll");
+})
