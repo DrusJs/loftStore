@@ -550,6 +550,7 @@ body.noscroll {
 .swiper {
     width: 100%;
     height: 450px;
+    padding-bottom: 40px;
   }
 
   .swiper-slide {
@@ -571,11 +572,7 @@ body.noscroll {
 
   .swiper {
     margin-left: auto;
-    overflow: visible;
     margin-right: auto;
-  }
-  .swiper-pagination-bullets.swiper-pagination-horizontal {
-    bottom: -30px;
   }
   .swiper-pagination-bullet {
     transition: 300ms ease-in-out;
@@ -594,20 +591,23 @@ body.noscroll {
     border-radius: 100%;
     background-color: rgb(232, 232, 232);
     color: #000000;
-    font-size: 20px;
     text-align: center;
     line-height: 40px;
   }
+  .swiper-button-prev {
+    left: 10%;
+  }
+  .swiper-button-next {
+    right: 10%;
+  }
   .swiper-button-next::after,
   .swiper-button-prev::after {
-    font-size: 20px;
+    font-size: 18px;
   }
   .swiper-button-next::after {
-    font-size: 20px;
     margin-right: -3px;
   }
   .swiper-button-prev::after {
-    font-size: 20px;
     margin-left: -3px;
   }
 /******************************/
@@ -620,6 +620,12 @@ body.noscroll {
         max-width: 640px;
         margin: 0 auto;
     }
+    .swiper-button-prev {
+        left: 6%;
+      }
+      .swiper-button-next {
+        right: 6%;
+      }
     .section-title.large {
         font-size: 60px;
     }
