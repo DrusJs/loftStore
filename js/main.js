@@ -17,6 +17,13 @@ document.querySelectorAll(".market-grid__item").forEach((el)=>{
     })
 });
 
+document.querySelectorAll(".image-grid__item").forEach((el)=>{
+    el.addEventListener("click", ()=>{
+        document.getElementById("modal-scroll").classList.add("active");
+        document.body.classList.add("noscroll");
+    })
+});
+
 document.querySelectorAll(".close-desktop").forEach((el)=>{
     el.addEventListener("click", ()=>{
         document.querySelector(".modal-wrapper.active").classList.remove("active");

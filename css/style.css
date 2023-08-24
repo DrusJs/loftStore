@@ -597,6 +597,16 @@ body.noscroll {
     left: 25px;
     cursor: pointer;
 }
+
+.modal-zoom {
+    position: fixed;
+    top: 25px;
+    right: 60px;
+}
+.icon-decrease {
+    display: none;
+}
+
 .modal {
     display: block;
     padding-top: 205px;
@@ -903,6 +913,9 @@ body.noscroll {
     .section-description {
         font-size: 16px;
     }
+    .image-grid {
+        grid-template-columns: 1fr 1fr;
+    }
     .footer {
         padding: 60px 0 30px 0;
     }
@@ -917,6 +930,9 @@ body.noscroll {
         font-size: 12px;
     }
     .close-mobile {
+        display: block;
+    }
+    .modal-scroll .close-desktop {
         display: block;
     }
     .close-desktop {
