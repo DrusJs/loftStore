@@ -180,6 +180,7 @@ body.noscroll {
 .fieldset.close {
     opacity: 0;
     height: 0;
+    pointer-events: none;
 }
 
 .loading {
@@ -290,9 +291,14 @@ body.noscroll {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 60px;
     margin-bottom: 45px;
-    
+    margin-top: 60px;
+}
+.section-title.margin-none {
+    margin-top: 0px;
+}
+.section-title.large {
+    font-size: 64px;
 }
 
 .section-title:after {
@@ -304,6 +310,99 @@ body.noscroll {
     height: 4px;
 }
 
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    gap: 65px 10px;
+}
+.market-grid__item {
+    position: relative;
+    max-width: 260px;
+    cursor: pointer;
+}
+
+.product-pin {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+.product-pin.jewelry {
+    background-image: url(../images/pin-jewelry.png);
+}
+.product-pin.accessories {
+    background-image: url(../images/pin-accessories.png);
+}
+.product-pin.clothes {
+    background-image: url(../images/pin-clothes.png);
+}
+.product-pin.decor {
+    background-image: url(../images/pin-decor.png);
+}
+.product-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #000000;
+    font-style: italic;
+    font-size: 16px;
+}
+.product-img {
+    width: 260px;
+    height: 286px;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.blog-grid {
+    display: grid;
+    padding: 0 20px;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 0 10px;
+    padding-top: 90px;
+}
+.blog-grid__item {
+    max-width: 360px;
+    height: 460px;
+    margin-bottom: 40px;
+}
+.blog-info {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 1px;
+    margin: 15px 0 10px 0;
+    color: #777;
+    text-transform: uppercase;
+}
+.blog-info .blog-theme {
+    margin-right: 10px;
+}
+.blog-description {
+    font-size: 16px;
+    line-height: 1.55;
+    color: #777;
+    font-weight: 300;
+}
+.blog-title {
+    font-size: 26px;
+    line-height: 1.23;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 12px;
+    height: 64px;
+}
 .section-bg {
     background-color: #dfdcd3;
     padding-top: 60px;
@@ -314,15 +413,16 @@ body.noscroll {
     color: #000000;
     font-weight: 300;
     font-size: 20px;
+    padding: 0 20px;
     line-height: 1.55;
-    max-width: 760px;
+    max-width: 800px;
     margin: 0 auto;
 }
 .section-description.center {
     text-align: center;
 }
 .section-description.padding {
-    padding: 60px 0;
+    padding: 60px 20px;
 }
 
 .section-button {
@@ -423,6 +523,9 @@ body.noscroll {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 0 30px;
 }
 
 .footer-nav__item {
@@ -434,18 +537,141 @@ body.noscroll {
     font-weight: 500;
 }
 
+.yandex-map canvas {
+	filter: grayscale(1);
+	-ms-filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+	-moz-filter: grayscale(1);
+	-o-filter: grayscale(1);
+}
+
 /******************************/
 /**********Responsive**********/
 /******************************/
 
 @media screen and (max-width: 1200px) {
-    
+    .market-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 640px;
+        margin: 0 auto;
+    }
+    .section-title.large {
+        font-size: 60px;
+    }
+    .blog-grid__item {
+        max-width: 300px;
+    }
+    .blog-img img {
+        width: 300px;
+    }
+    .blog-title {
+        font-size: 24px;
+    }
+    .blog-description {
+        font-size: 14px;
+    }
+    .section-subtitle {
+        font-size: 38px;
+    }
+    .section-adress {
+        font-size: 16px;
+    }
+    .section-description {
+        font-size: 18px;
+    }
+    .footer-nav__item a {
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width: 960px) {
-    
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .blog-grid__item {
+        max-width: 600px;
+        height: 195px;
+    }
+    .blog-img {
+        float: left;
+        margin-right: 20px;
+    }
+    .blog-info {
+        margin-top: 0;
+    }
+    .fieldset {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+        gap: 30px;
+    }
+    .main-form__select {
+        width: 100%;
+    }
+    .main-form__label {
+        width: 100%;
+        max-width: 600px;
+    }
+    .submit-button {
+        width: 100%;
+        display: flex;
+        line-height: 60px;
+        align-items: center;
+        justify-content: center;
+        max-width: 600px;
+    }
 }
 
-@media screen and (max-width: 480px) {
-    
+@media screen and (max-width: 600px) {
+    .market-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .section-title.large {
+        font-size: 30px;
+        height: 80px;
+    }
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px ;
+    }
+    .blog-title {
+        height: auto;
+    }
+    .blog-grid__item {
+        max-width: 100%;
+        height: auto;
+    }
+    .blog-img img {
+        width: 100%;
+    }
+    .blog-img {
+        float: none;
+        margin-right: 0;
+    }
+    .blog-info {
+        margin-top: 15px;
+    }
+    .section-subtitle {
+        font-size: 30px;
+    }
+    .section-adress {
+        font-size: 14px;
+    }
+    .section-description {
+        font-size: 16px;
+    }
+    .footer {
+        padding: 60px 0 30px 0;
+    }
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 220px;
+        margin: 0 auto;
+        justify-content: flex-start;
+    }
+    .footer-nav__item a {
+        font-size: 12px;
+    }
 }
