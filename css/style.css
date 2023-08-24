@@ -161,20 +161,81 @@ body.noscroll {
     bottom: -10%;
 }
 
+
+
 .main-form {
     padding-top: 30px;
     padding-bottom: 60px;
     background-color: #6cbcb8;
+}
+
+.fieldset {
     display: flex;
     align-items: flex-end;
     justify-content: center;
     gap: 15px;
+    transition: 400ms ease-in-out;
+}
+
+.fieldset.close {
+    opacity: 0;
+    height: 0;
+}
+
+.loading {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: .15rem solid rgba(0, 0, 0, 0.1);
+    border-top-color: #000000;
+    animation: spin 500ms infinite linear;
+}
+
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+.message {
+    max-width: 960px;
+    padding: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    flex-basis: 100%;
+    margin: 0 auto 30px auto;
+    display: none;
+}
+.message.accept {
+    background-color: #62C584;
+    display: block;
 }
 
 .main-form__label {
     font-size: 20px;
     line-height: 1.55;
     color: #FFFFFF;
+}
+.select-container {
+    position: relative;
+}
+.select-container:after {
+    content: '';
+    width: 0px;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 5px 0 5px;
+    border-color: #FFFFFF transparent transparent transparent;
+    border-top-color: #FFFFFF;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    pointer-events: none;
 }
 
 .main-form__select {
@@ -202,33 +263,21 @@ body.noscroll {
     font-size: 16px;
     color: #FFFFFF;
 }
-.main-form__select::after {
-    content: ' ';
-    width: 10px;
-    height: 0;
-    border-style: solid;
-    border-width: 6px 5px 0 5px;
-    border-color: #000 transparent transparent transparent;
-        border-top-color: rgb(0, 0, 0);
-    position: absolute;
-    right: 20px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    pointer-events: none;
-}
-
 .submit-button {
     text-align: center;
     height: 60px;
+    width: 167px;
     border: 0 none;
     font-size: 16px;
     padding-left: 60px;
     padding-right: 60px;
-    -webkit-appearance: none;
     font-weight: 700;
     white-space: nowrap;
     cursor: pointer;
+    background-color: #FFFFFF;
+}
+.submit-button.load {
+    background-color: #F1F1F1;
 }
 
 .section-title {
