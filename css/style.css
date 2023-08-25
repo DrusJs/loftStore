@@ -174,6 +174,7 @@ body.noscroll {
     align-items: flex-end;
     justify-content: center;
     gap: 15px;
+    height: 100px;
     transition: 400ms ease-in-out;
 }
 
@@ -939,6 +940,7 @@ body.noscroll {
         align-items: center;
         padding: 0 20px;
         gap: 30px;
+        height: 575px;
     }
     .main-form__select {
         width: 100%;
