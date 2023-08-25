@@ -204,9 +204,9 @@ body.noscroll {
 .message {
     max-width: 960px;
     padding: 20px;
+    font-size: 20px;
     text-align: center;
     color: #FFFFFF;
-    flex-basis: 100%;
     margin: 0 auto 30px auto;
     display: none;
 }
@@ -472,12 +472,13 @@ body.noscroll {
     max-width: 1920px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
     gap: 0 0;
 }
 
 .image-grid__item {
     width: 100%;
-    height: auto;
+    height: 100%;
     max-height: 305px;
     transition: 200ms ease-in-out;
     cursor: zoom-in;
@@ -654,55 +655,72 @@ body.noscroll {
     color: #FFFFFF;
 }
 
-.yandex-map canvas {
+.yandex-map {
 	filter: grayscale(1);
 	-ms-filter: grayscale(1);
 	-webkit-filter: grayscale(1);
 	-moz-filter: grayscale(1);
 	-o-filter: grayscale(1);
 }
+.zoom-img {
+    height: 100%;
+}
+.zoom-img img {
+    height: 100%;
+}
+.zoom-img .product-img {
+    width: auto;
+}
+#modal-zoom {
+    padding: 50px;
+    display: flex;    
+    justify-content: center;
+    z-index: 10;
+}
 /******************************/
 /**********Swiper**********/
 /******************************/
-.swiper {
+.main .swiper {
     width: 100%;
     height: 450px;
     padding-bottom: 40px;
-  }
-
-  .swiper-slide {
+}
+.main .swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
+.main .swiper-slide-next,
+.main .swiper-slide-prev  {
+    opacity: 0.5;
+}
 
-  .swiper-slide img {
+.main .swiper-slide img {
     display: block;
     width: 100%;
     max-width: 860px;
     height: 100%;
     object-fit: cover;
-  }
-
-  .swiper {
+}
+.main .swiper {
     margin-left: auto;
     margin-right: auto;
-  }
-  .swiper-pagination-bullet {
+}
+.main .swiper-pagination-bullet {
     transition: 300ms ease-in-out;
-  }
-  .swiper-pagination-bullet-active {
+}
+.main .swiper-pagination-bullet-active {
     background: #222222;
-  }
-  .swiper-pagination-bullet:hover {
+}
+.main .swiper-pagination-bullet:hover {
     opacity: 1;
     background: #222222;
-  }
-  .swiper-button-next,
-  .swiper-button-prev {
+}
+.main .swiper-button-next,
+.main .swiper-button-prev {
     width: 40px;
     height: 40px;
     border-radius: 100%;
@@ -710,23 +728,83 @@ body.noscroll {
     color: #000000;
     text-align: center;
     line-height: 40px;
-  }
-  .swiper-button-prev {
+}
+.main .swiper-button-prev {
     left: 10%;
-  }
-  .swiper-button-next {
+}
+.main .swiper-button-next {
     right: 10%;
-  }
-  .swiper-button-next::after,
-  .swiper-button-prev::after {
+}
+.main .swiper-button-next::after,
+.main .swiper-button-prev::after {
     font-size: 18px;
-  }
-  .swiper-button-next::after {
+}
+.main .swiper-button-next::after {
     margin-right: -3px;
-  }
-  .swiper-button-prev::after {
+}
+.main .swiper-button-prev::after {
     margin-left: -3px;
-  }
+}
+
+.myModalSwiper {
+    width: 100%;
+    max-height: 700px;
+}
+
+.myModalSwiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+.myModalSwiper .swiper-slide img {
+    max-width: 100%;
+    max-height: 700px;
+    margin: 0 auto;
+}
+.modal-scroll.active .modal {
+    max-width: 100%;
+    height: auto;
+    padding: 20px 50px;
+    max-height: 700px;
+}
+.myModalSwiper .swiper-button-next::after,
+.myModalSwiper .swiper-button-prev::after {
+    font-size: 22px;
+    color: #111111;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 100%;
+}
+.myModalSwiper .swiper-button-next,
+.myModalSwiper .swiper-button-prev {
+    width: 200px;
+    height: 100%;
+    top: 0;
+}
+.myModalSwiper .swiper-button-prev {
+    left: 0;
+}
+.myModalSwiper .swiper-button-next {
+    right: 0;
+}
+.myModalSwiper .swiper-button-prev::after {
+    left: 0;
+    padding-right: 4px;
+}
+.myModalSwiper .swiper-button-next::after {
+    right: 0;
+    padding-left: 4px;
+}
+
+.modal-scroll {
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /******************************/
 /**********Responsive**********/
 /******************************/
@@ -737,10 +815,12 @@ body.noscroll {
         max-width: 640px;
         margin: 0 auto;
     }
-    .swiper-button-prev {
+    
+    .main .swiper-button-prev {
         left: 6%;
     }
-    .swiper-button-next {
+    
+    .main .swiper-button-next {
         right: 6%;
     }
     .section-title.large {
@@ -788,7 +868,15 @@ body.noscroll {
     .header-inner, .header-nav {
         flex-direction: column;
     }
-
+    .modal-scroll.active .modal {
+        padding: 20px 0;
+    }
+    .zoom-img {
+        height: 80%;
+    }
+    .zoom-img .product-img {
+        height: 80%;
+    }
     .header-logo {
         position: absolute;
         top: 30px;
@@ -810,8 +898,9 @@ body.noscroll {
         gap: 20px;
     }
     .blog-grid__item {
-        max-width: 600px;
+        max-width: 700px;
         height: 195px;
+        width: 100%;
     }
     .blog-img {
         float: left;
@@ -916,6 +1005,10 @@ body.noscroll {
     .image-grid {
         grid-template-columns: 1fr 1fr;
     }
+    .message {
+        font-size: 16px;
+        line-height: 1.45;
+    }
     .footer {
         padding: 60px 0 30px 0;
     }
@@ -932,7 +1025,8 @@ body.noscroll {
     .close-mobile {
         display: block;
     }
-    .modal-scroll .close-desktop {
+    .modal-scroll .close-desktop,
+    #modal-zoom .close-desktop {
         display: block;
     }
     .close-desktop {
@@ -941,18 +1035,23 @@ body.noscroll {
     .back-desktop {
         display: none;
     }
-    .swiper-button-next,
-    .swiper-button-prev {
+    
+    .main .swiper-button-next,    
+    .main .swiper-button-prev {
       width: 24px;
       height: 24px;
     }
-    .swiper-button-prev {
+    
+    .main .swiper-button-prev {
       left: 15px;
     }
-    .swiper-button-next {
+    
+    .main .swiper-button-next {
       right: 15px;
     }
-    .swiper-button-next::after, .swiper-button-prev::after {
+    
+    .main .swiper-button-next::after, 
+    .main .swiper-button-prev::after {
         font-size: 12px;
     }
 }

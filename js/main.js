@@ -17,6 +17,10 @@ document.querySelectorAll(".market-grid__item").forEach((el)=>{
     })
 });
 
+document.querySelector(".modal-img").addEventListener("click", (el)=>{
+    document.getElementById("modal-zoom").classList.add("active");
+    document.querySelector(".zoom-img").innerHTML = el.currentTarget.innerHTML;
+})
 document.querySelectorAll(".image-grid__item").forEach((el)=>{
     el.addEventListener("click", ()=>{
         document.getElementById("modal-scroll").classList.add("active");
@@ -28,6 +32,7 @@ document.querySelectorAll(".image-grid__item").forEach((el)=>{
 document.querySelectorAll(".close-desktop").forEach((el)=>{
     el.addEventListener("click", ()=>{
         document.querySelector(".modal-wrapper.active").classList.remove("active");
+        if (document.querySelector(".modal-wrapper.active")){return}
         document.body.classList.remove("noscroll");
     })
 });
@@ -35,6 +40,7 @@ document.querySelectorAll(".close-desktop").forEach((el)=>{
 document.querySelectorAll(".close-mobile").forEach((el)=>{
     el.addEventListener("click", ()=>{
         document.querySelector(".modal-wrapper.active").classList.remove("active");
+        if (document.querySelector(".modal-wrapper.active")){return}
         document.body.classList.remove("noscroll");
     })
 });
