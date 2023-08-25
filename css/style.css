@@ -353,11 +353,21 @@ body.noscroll {
     font-style: italic;
     font-size: 16px;
 }
+
 .product-img {
     width: 260px;
     height: 286px;
 }
-
+.market-grid__item .product-img.hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 1;
+}
+.market-grid__item .product-img.top:hover {
+    opacity: 0;
+}
 .product-name {
     font-size: 16px;
     font-weight: 700;
