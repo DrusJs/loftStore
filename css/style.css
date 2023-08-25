@@ -932,6 +932,10 @@ body.noscroll {
         float: left;
         margin-right: 20px;
     }
+    .main .swiper-slide-next,
+    .main .swiper-slide-prev  {
+        opacity: 1;
+    }
     .blog-info {
         margin-top: 0;
     }
