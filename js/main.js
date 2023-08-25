@@ -49,3 +49,22 @@ document.querySelector(".back-desktop").addEventListener("click", ()=>{
     document.getElementById("modal-product").classList.remove("active");
     document.body.classList.remove("noscroll");
 })
+document.querySelectorAll(".modal-scroll .swiper-slide").forEach((el)=>{
+    el.addEventListener("click", ()=>{
+        if(document.querySelector(".swiper.zoom")) {
+            document.querySelector(".swiper.zoom").classList.remove("zoom");
+            document.querySelector(".modal-zoom").classList.remove("zoom");
+        } else {
+            el.parentElement.parentElement.classList.add("zoom");
+            document.querySelector(".modal-zoom").classList.add("zoom");
+        }
+    })
+});
+document.querySelector(".modal-zoom").addEventListener("click", (el)=>{
+    el.currentTarget.classList.toggle("zoom");
+    if(el.currentTarget.classList.contains("zoom")) {
+        document.querySelector(".modal-scroll .swiper").classList.add("zoom");
+    } else {
+        document.querySelector(".modal-scroll .swiper").classList.remove("zoom");        
+    }
+})
