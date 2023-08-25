@@ -996,6 +996,9 @@ body.noscroll {
     .modal-wrapper.active .modal {
         padding-top: 70px;
     }
+    .market-grid__item .product-img.top:hover {
+        opacity: 1;
+    }
     .modal-img {
         margin-right: 0;
         float: none;
